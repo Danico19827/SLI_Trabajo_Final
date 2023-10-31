@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>865</width>
-    <height>600</height>
+    <height>668</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -79,14 +79,30 @@
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>330</y>
+                <y>370</y>
                 <width>811</width>
-                <height>211</height>
+                <height>241</height>
                </rect>
               </property>
               <property name="title">
                <string>Gráfico de Gastos Semanales</string>
               </property>
+              <widget class="QFrame" name="frameGrafico">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>20</y>
+                 <width>791</width>
+                 <height>211</height>
+                </rect>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
              </widget>
              <widget class="QTableWidget" name="tablaInput">
               <property name="geometry">
@@ -105,6 +121,9 @@
               </property>
               <property name="editTriggers">
                <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::CurrentChanged|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+              </property>
+              <property name="dragDropOverwriteMode">
+               <bool>true</bool>
               </property>
               <property name="dragDropMode">
                <enum>QAbstractItemView::DragOnly</enum>
@@ -138,7 +157,13 @@
               </attribute>
               <row>
                <property name="text">
-                <string>Transporte</string>
+                <string notr="true">Transporte</string>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
                </property>
               </row>
               <row>
@@ -168,7 +193,13 @@
               </row>
               <column>
                <property name="text">
-                <string>Lunes</string>
+                <string notr="true">Lunes</string>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
                </property>
               </column>
               <column>
@@ -203,7 +234,13 @@
               </column>
               <item row="0" column="0">
                <property name="text">
-                <string extracomment="0000"/>
+                <string notr="true" extracomment="0000"/>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
                </property>
               </item>
               <item row="0" column="1">
@@ -384,45 +421,19 @@
               <property name="text">
                <string>Ingresos:</string>
               </property>
-             </widget>
-             <widget class="QDoubleSpinBox" name="doubleSpinBox">
-              <property name="geometry">
-               <rect>
-                <x>80</x>
-                <y>10</y>
-                <width>141</width>
-                <height>31</height>
-               </rect>
+              <property name="margin">
+               <number>0</number>
               </property>
-              <property name="decimals">
-               <number>2</number>
-              </property>
-              <property name="maximum">
-               <double>10000000.990000000223517</double>
-              </property>
-              <property name="stepType">
-               <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_2">
-              <property name="geometry">
-               <rect>
-                <x>230</x>
-                <y>10</y>
-                <width>21</width>
-                <height>31</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>$</string>
+              <property name="indent">
+               <number>-1</number>
               </property>
              </widget>
              <widget class="QPushButton" name="btnAplicar">
               <property name="geometry">
                <rect>
-                <x>380</x>
+                <x>310</x>
                 <y>300</y>
-                <width>75</width>
+                <width>211</width>
                 <height>24</height>
                </rect>
               </property>
@@ -434,11 +445,11 @@
 }
 
 #btnAplicar:hover{
-	background-color: rgb(71, 151, 255);
+	background-color: rgb(0, 85, 255);
 }</string>
               </property>
               <property name="text">
-               <string>Aplicar</string>
+               <string>Aplicar y Guardar Datos</string>
               </property>
              </widget>
              <widget class="QGroupBox" name="groupBox_2">
@@ -451,14 +462,14 @@
                </rect>
               </property>
               <property name="title">
-               <string>Egreso</string>
+               <string>Gastos</string>
               </property>
-              <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="gastos_txt">
                <property name="geometry">
                 <rect>
                  <x>10</x>
                  <y>20</y>
-                 <width>49</width>
+                 <width>191</width>
                  <height>16</height>
                 </rect>
                </property>
@@ -479,12 +490,12 @@
               <property name="title">
                <string>Ahorros</string>
               </property>
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="ahorro_txt">
                <property name="geometry">
                 <rect>
                  <x>10</x>
                  <y>20</y>
-                 <width>49</width>
+                 <width>191</width>
                  <height>16</height>
                 </rect>
                </property>
@@ -500,6 +511,61 @@
                 <y>50</y>
                 <width>351</width>
                 <height>16</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>13</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 0, 0)</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="btnReiniciar">
+              <property name="geometry">
+               <rect>
+                <x>720</x>
+                <y>300</y>
+                <width>91</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#btnReiniciar{
+	color: rgb(255, 255, 255);
+	background-color: rgb(147, 147, 147);
+	border-radius: 3px;	
+}
+
+#btnReiniciar:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+              </property>
+              <property name="text">
+               <string>Reiniciar Tabla</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="ingresosInput">
+              <property name="geometry">
+               <rect>
+                <x>70</x>
+                <y>11</y>
+                <width>161</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QLabel" name="conclusion_txt">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>340</y>
+                <width>791</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="text">
