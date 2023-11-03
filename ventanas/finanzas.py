@@ -1,26 +1,36 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QMessageBox
+from PyQt6.QtWidgets import QVBoxLayout
 from PyQt6.QtWidgets import QTableWidgetItem
+from PyQt6.QtWidgets import QTableWidgetItem, QWidget
 import json
+import pyqtgraph as pg
 
-from matplotlib.figure import Figure
 
 class Finanza():
+
     def __init__(self) -> None:
         self.finanzas = uic.loadUi("../SLI_Trabajo_Final/ventanas/finanzas.ui")
-        self.finanzas.setMinimumSize(self.finanzas.size()) 
-        self.finanzas.setMaximumSize(self.finanzas.size())
         self.finanzas.show()
-        #inicializar
+        self.finanzas.showMaximized()
+        #Inicializar
         self.cargarDatos()
         self.aplicar()
         self.reiniciar()
+        self.plot = None
+        self.grafico()
+        self.inicio()
 
+    def inicio(self):
+        self.finanzas.btnInicio.clicked.connect(self.volverInicio)
+
+    def volverInicio(self):
+        pass
 
     def cargarDatos(self):
         try:
             with open('tablaInput.json', 'r') as archivo:
                 datos = json.load(archivo)
+                self.datos_originales = datos
                 self.llenarTablaDesdeJSON(datos)
         except FileNotFoundError:
             self.finanzas.aviso_txt.setText("No se encontró el archivo de datos")
@@ -34,12 +44,12 @@ class Finanza():
 
 
     def llenarTablaDesdeJSON(self, datos):
-        tabla_input = self.finanzas.tablaInput
+        tablaInput = self.finanzas.tablaInput
         for columna, filas in datos.items():
             for fila, valor in filas.items():
                 col = int(columna.replace("columna", ""))
                 fil = int(fila.replace("fila", ""))
-                tabla_input.setItem(fil, col, QTableWidgetItem(str(valor)))
+                tablaInput.setItem(fil, col, QTableWidgetItem(str(valor)))
 
 
     def aplicar(self):
@@ -47,14 +57,14 @@ class Finanza():
 
 
     def comprobarDatos(self):
-        tabla_input = self.finanzas.tablaInput
-        num_filas = tabla_input.rowCount()
-        num_columnas = tabla_input.columnCount()
+        tablaInput = self.finanzas.tablaInput
+        numFilas = tablaInput.rowCount()
+        numColumnas = tablaInput.columnCount()
         valores_validos = True
 
-        for fila in range(num_filas):
-            for columna in range(num_columnas):
-                item = tabla_input.item(fila, columna)
+        for fila in range(numFilas):
+            for columna in range(numColumnas):
+                item = tablaInput.item(fila, columna)
                 if item is not None:
                     valor = item.text()
                     if not self.validarNumero(valor):
@@ -67,21 +77,22 @@ class Finanza():
             self.calcularGastos()
             self.aplicarFormato()
             self.mostrarConclusion()
+            self.grafico()
             self.finanzas.aviso_txt.setText("")
         else:
             self.finanzas.aviso_txt.setText("Se encontraron valores inválidos")
 
 
     def guardarDatos(self):
-        tabla_input = self.finanzas.tablaInput
-        num_filas = tabla_input.rowCount()
-        num_columnas = tabla_input.columnCount()
+        tablaInput = self.finanzas.tablaInput
+        numFilas = tablaInput.rowCount()
+        numColumnas = tablaInput.columnCount()
         datos = {}
 
-        for columna in range(num_columnas):
+        for columna in range(numColumnas):
             datos[f"columna{columna}"] = {}
-            for fila in range(num_filas):
-                item = tabla_input.item(fila, columna)
+            for fila in range(numFilas):
+                item = tablaInput.item(fila, columna)
                 if item is not None:
                     valor = item.text()
                 else:
@@ -97,15 +108,17 @@ class Finanza():
 
 
     def reiniciarDatos(self):
-        tabla_input = self.finanzas.tablaInput
-        num_filas = tabla_input.rowCount()
-        num_columnas = tabla_input.columnCount()
-        for fila in range(num_filas):
-            for columna in range(num_columnas):
-                tabla_input.setItem(fila, columna, QTableWidgetItem(str(0)))
+        tablaInput = self.finanzas.tablaInput
+        numFilas = tablaInput.rowCount()
+        numColumnas = tablaInput.columnCount()
+        for fila in range(numFilas):
+            for columna in range(numColumnas):
+                valorOriginal = self.datos_originales.get(f"columna{columna}", {}).get(f"fila{fila}", 0)
+                tablaInput.setItem(fila, columna, QTableWidgetItem(str(0)))
         self.guardarDatos()
+        self.grafico()
         self.finanzas.aviso_txt.setText("")
-        self.finanzas.ahorro_txt.setText("0$")
+        self.finanzas.ahorros_txt.setText("0$")
         self.finanzas.gastos_txt.setText("0$")
         self.finanzas.conclusion_txt.setText("")
 
@@ -118,8 +131,10 @@ class Finanza():
         
     def aplicarFormato(self):
         valor = self.finanzas.ingresosInput.text()
-        if valor is None or valor == "":
+        if valor is None or valor == "" or not self.validarNumero(str(valor)):
             valor = 0
+            self.finanzas.ingresosInput.setText("0")
+            self.finanzas.aviso_txt.setText("Valor invalido en 'Ingreso', se reemplazo con 0")
         else:
             valor = valor.replace(',', '')
             valorFinal = '{:,}'.format(int(valor))
@@ -128,16 +143,16 @@ class Finanza():
     #OPERACIONES
 
     def calcularGastos(self):
-        tabla_input = self.finanzas.tablaInput
-        num_filas = tabla_input.rowCount()
-        num_columnas = tabla_input.columnCount()
+        tablaInput = self.finanzas.tablaInput
+        numFilas = tablaInput.rowCount()
+        numColumnas = tablaInput.columnCount()
         suma = 0
-        for fila in range(num_filas):
-            for columna in range(num_columnas):
+        for fila in range(numFilas):
+            for columna in range(numColumnas):
                 if (fila == 4):
                     pass
                 else:
-                    item = tabla_input.item(fila, columna)
+                    item = tablaInput.item(fila, columna)
                     suma = suma + int(item.text()) 
         totalGasto = '{:,}'.format(suma)
         self.finanzas.gastos_txt.setText(f"{totalGasto}$")
@@ -145,29 +160,79 @@ class Finanza():
 
 
     def calcularAhorro(self):
-        tabla_input = self.finanzas.tablaInput
-        num_columnas = tabla_input.columnCount()
+        tablaInput = self.finanzas.tablaInput
+        numColumnas = tablaInput.columnCount()
         suma = 0
-        for columna in range(num_columnas):
-                item = tabla_input.item(4, columna)
+        for columna in range(numColumnas):
+                item = tablaInput.item(4, columna)
                 suma = suma + int(item.text()) 
         totalAhorro = '{:,}'.format(suma)
-        self.finanzas.ahorro_txt.setText(f"{totalAhorro}$")
+        self.finanzas.ahorros_txt.setText(f"{totalAhorro}$")
         
 
     def mostrarConclusion(self):
         ingresos = self.finanzas.ingresosInput.text().replace(',', '')
         gastos = self.finanzas.gastos_txt.text().replace(',', '')
         gastos = ''.join([caracter for caracter in gastos if caracter != "$"])
-        total = int(ingresos) - int(gastos)
-        totalFinal = '{:,}'.format(total)
-        if total < 0:
-            self.finanzas.conclusion_txt.setText(f"De acuerdo a sus ingresos, hasta ahora usted gasto más dinero de lo que tenía. Dinero Actual = {totalFinal}$")
-        elif total >0:
-            self.finanzas.conclusion_txt.setText(f"De acuerdo a sus ingresos, hasta ahora usted no gasto todo dinero que tenía. Dinero Actual = {totalFinal}$")
-        elif total == 0:
-            self.finanzas.conclusion_txt.setText(f"De acuerdo a sus ingresos, hasta ahora usted gasto todo el dinero que tenía. Dinero Actual = {totalFinal}$")
-        
+        ahorros = self.finanzas.ahorros_txt.text().replace(',', '')
+        ahorros = ''.join([caracter for caracter in ahorros if caracter != "$"])
+        if self.validarNumero(ingresos):
+            total = int(ingresos) - int(gastos) - int(ahorros)
+            totalFinal = '{:,}'.format(total)
+            ahorroFinal = '{:,}'.format(int(ahorros))
+            if total < 0:
+                self.finanzas.conclusion_txt.setText(f"De acuerdo a sus ingresos, hasta ahora usted gasto más dinero de lo que tenía. Dinero Actual = {totalFinal}$. Ahorros: {ahorroFinal}$.")
+            elif total >0:
+                self.finanzas.conclusion_txt.setText(f"De acuerdo a sus ingresos, hasta ahora usted no gasto todo dinero que tenía. Dinero Actual = {totalFinal}$. Ahorros: {ahorroFinal}$.")
+            elif total == 0:
+                self.finanzas.conclusion_txt.setText(f"De acuerdo a sus ingresos, hasta ahora usted gasto todo el dinero que tenía. Dinero Actual = {totalFinal}$. Ahorros: {ahorroFinal}$.")
+        else:
+            self.finanzas.aviso_txt.setText("Error")
     
+    def gastosColumna(self, columna):
+        tablaInput = self.finanzas.tablaInput
+        numFilas = tablaInput.rowCount()
+        suma = 0
+        for fila in range(numFilas):
+            if fila == 4:
+                pass
+            else:
+                item = tablaInput.item(fila, columna)
+                suma = suma + int(item.text())
+        return suma
+
+
+    
+    def borrarGrafico(self):
+        if self.plot is not None:
+            self.plot.hide() 
+
     def grafico(self):
-        pass
+        self.borrarGrafico() 
+        plot = pg.PlotWidget(title="Gráfico de Gastos", color="black")
+        
+        x = [1, 2, 3, 4, 5, 6, 7]
+        y = [self.gastosColumna(0), self.gastosColumna(1),
+            self.gastosColumna(2), self.gastosColumna(3),
+            self.gastosColumna(4), self.gastosColumna(5),
+            self.gastosColumna(6)]
+
+        bar = pg.BarGraphItem(x=x, height=y, width=0.4, brush="lightblue")
+
+        plot.addItem(bar)
+
+        plot.setBackground("#FFFF")
+        plot.setLabel("bottom", "Días", color=(0, 0, 0))
+        plot.setLabel("left", "Gastos", color=(0, 0, 0))
+        plot.setTitle("Gráfico de Gastos", color="black")
+        plot.getAxis("bottom").setPen(color="black")
+        plot.getAxis("left").setPen(color="black")
+        plot.getAxis("bottom").setLabel(color="black")  
+        plot.getAxis("left").setLabel(color="black")  
+        plot.getAxis("bottom").setTextPen(color="black")  
+        plot.getAxis("left").setTextPen(color="black")   
+        
+
+        self.finanzas.frameGrafico.setLayout(QVBoxLayout()) 
+        self.finanzas.frameGrafico.layout().addWidget(plot)  
+        self.plot = plot
