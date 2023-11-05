@@ -1,11 +1,11 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
-from ventanas.finanzas import Finanza
+from controller.FinanzasController import Finanza
 
 class Main():
     def __init__(self) -> None:
-        self.main = uic.loadUi("../SLI_Trabajo_Final/ventanas/main.ui")
+        self.main = uic.loadUi("../SLI_Trabajo_Final/resources/templates/main.ui")
         self.main.showMaximized()
         self.accederFinanzas()
 
