@@ -9,7 +9,7 @@ import pyqtgraph as pg
 class Finanza():
 
     def __init__(self) -> None:
-        self.finanzas = uic.loadUi("../SLI_Trabajo_Final/ventanas/finanzas.ui")
+        self.finanzas = uic.loadUi("../SLI_Trabajo_Final/resources/templates/finanzas.ui")
         self.finanzas.show()
         self.finanzas.showMaximized()
         #Inicializar

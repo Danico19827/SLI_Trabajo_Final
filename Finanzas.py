@@ -1,8 +1,5 @@
-from ventanas.main import Main
-from ventanas.finanzas import Finanza
 from PyQt6.QtWidgets import QApplication
-
-
+from controller.MainController import Main
 
 class Lanzador():
     def __init__(self) -> None:
