@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import QApplication
-from controller.MainController import Main
+from controller.MainWindow import Main
 
 class Lanzador():
     def __init__(self) -> None:

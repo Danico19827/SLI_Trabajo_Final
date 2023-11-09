@@ -1,3 +1,3 @@
-from Finanzas import Lanzador
+from Asistente import Lanzador
 
 App = Lanzador()

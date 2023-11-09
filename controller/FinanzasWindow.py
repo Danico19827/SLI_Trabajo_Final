@@ -1,7 +1,6 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QVBoxLayout
 from PyQt6.QtWidgets import QTableWidgetItem
-from PyQt6.QtWidgets import QTableWidgetItem, QWidget
 import json
 import pyqtgraph as pg
 
@@ -18,13 +17,7 @@ class Finanza():
         self.reiniciar()
         self.plot = None
         self.grafico()
-        self.inicio()
-
-    def inicio(self):
-        self.finanzas.btnInicio.clicked.connect(self.volverInicio)
-
-    def volverInicio(self):
-        pass
+        
 
     def cargarDatos(self):
         try:
@@ -113,7 +106,6 @@ class Finanza():
         numColumnas = tablaInput.columnCount()
         for fila in range(numFilas):
             for columna in range(numColumnas):
-                valorOriginal = self.datos_originales.get(f"columna{columna}", {}).get(f"fila{fila}", 0)
                 tablaInput.setItem(fila, columna, QTableWidgetItem(str(0)))
         self.guardarDatos()
         self.grafico()
@@ -130,11 +122,11 @@ class Finanza():
             return False
         
     def aplicarFormato(self):
-        valor = self.finanzas.ingresosInput.text()
+        valor = self.finanzas.ingresosInput.text().replace(',', '')
         if valor is None or valor == "" or not self.validarNumero(str(valor)):
             valor = 0
             self.finanzas.ingresosInput.setText("0")
-            self.finanzas.aviso_txt.setText("Valor invalido en 'Ingreso', se reemplazo con 0")
+            #self.finanzas.aviso_txt.setText("Valor invalido en 'Ingreso', se reemplazo con 0")
         else:
             valor = valor.replace(',', '')
             valorFinal = '{:,}'.format(int(valor))
@@ -201,8 +193,6 @@ class Finanza():
                 suma = suma + int(item.text())
         return suma
 
-
-    
     def borrarGrafico(self):
         if self.plot is not None:
             self.plot.hide() 

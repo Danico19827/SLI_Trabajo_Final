@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>875</width>
-    <height>676</height>
+    <height>699</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,9 +34,13 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="finanzasFondo">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
+       <string notr="true">#finanzasFondo{
+	background-image: url(imagenes/fondo.png);
+}
+
+</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -72,7 +76,11 @@
           <item>
            <widget class="QTabWidget" name="tabWidget">
             <property name="styleSheet">
-             <string notr="true">#ingresosInput{
+             <string notr="true">#tab, #tab_2, #tab_3, #tab_4{
+	background-image: url(imagenes/frame.png);
+}
+
+#ingresosInput{
 	width: 100px;
 	padding: 10px 0px;
 }
@@ -98,7 +106,9 @@
 
 #graficos_box{
 	height:10px;
-}</string>
+}
+
+</string>
             </property>
             <property name="currentIndex">
              <number>0</number>
@@ -285,6 +295,9 @@
               </item>
               <item row="6" column="1" colspan="18">
                <widget class="QLabel" name="conclusion_txt">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
@@ -366,7 +379,7 @@
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true"/>
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
                 </property>
                 <property name="title">
                  <string>Gráfico de Gastos Semanales</string>
@@ -740,27 +753,21 @@
               </item>
              </layout>
             </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnInicio">
-            <property name="styleSheet">
-             <string notr="true">#btnInicio{
-	margin: 5px 350px;
-	color: rgb(255, 255, 255);
-	background-color: rgb(85, 170, 255);
-	border-radius: 3px;	
-}
-
-#btnInicio:hover{
-	background-color: rgb(0, 85, 255);
-}
-
-</string>
-            </property>
-            <property name="text">
-             <string>Volver al Inicio</string>
-            </property>
+            <widget class="QWidget" name="tab_4">
+             <attribute name="title">
+              <string>Gasto Mensual</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="tab_2">
+             <attribute name="title">
+              <string>Gasto Anual</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="tab">
+             <attribute name="title">
+              <string>Calculadora</string>
+             </attribute>
+            </widget>
            </widget>
           </item>
          </layout>

@@ -5,7 +5,7 @@
     "fila2": "0",
     "fila3": "0",
     "fila4": "0",
-    "fila5": "0"
+    "fila5": "1"
   },
   "columna1": {
     "fila0": "0",
@@ -13,7 +13,7 @@
     "fila2": "0",
     "fila3": "0",
     "fila4": "0",
-    "fila5": "0"
+    "fila5": "2"
   },
   "columna2": {
     "fila0": "0",
@@ -21,7 +21,7 @@
     "fila2": "0",
     "fila3": "0",
     "fila4": "0",
-    "fila5": "0"
+    "fila5": "3"
   },
   "columna3": {
     "fila0": "0",
@@ -29,7 +29,7 @@
     "fila2": "0",
     "fila3": "0",
     "fila4": "0",
-    "fila5": "0"
+    "fila5": "4"
   },
   "columna4": {
     "fila0": "0",
@@ -37,7 +37,7 @@
     "fila2": "0",
     "fila3": "0",
     "fila4": "0",
-    "fila5": "0"
+    "fila5": "5"
   },
   "columna5": {
     "fila0": "0",
@@ -45,7 +45,7 @@
     "fila2": "0",
     "fila3": "0",
     "fila4": "0",
-    "fila5": "0"
+    "fila5": "6"
   },
   "columna6": {
     "fila0": "0",
@@ -53,6 +53,6 @@
     "fila2": "0",
     "fila3": "0",
     "fila4": "0",
-    "fila5": "0"
+    "fila5": "7"
   }
 }
