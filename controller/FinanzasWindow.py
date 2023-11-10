@@ -10,7 +10,7 @@ class Finanza():
     def __init__(self) -> None:
         self.finanzas = uic.loadUi("../SLI_Trabajo_Final/resources/templates/finanzas.ui")
         self.finanzas.show()
-        self.finanzas.showMaximized()
+        #self.finanzas.showMaximized()
         #Inicializar
         self.cargarDatos()
         self.aplicar()
