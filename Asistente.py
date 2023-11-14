@@ -5,6 +5,5 @@ from controller.mainWindowChild import MainWindowChild
 class Lanzador():
     def __init__(self) -> None:
         self.app = QApplication([])
-        #self.main = Main()
-        self.main = MainWindowChild()
+        self.main = Main()
         self.app.exec()

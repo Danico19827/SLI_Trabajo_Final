@@ -2,7 +2,7 @@ from PyQt6 import uic
 
 from controller.FinanzasWindow import Finanza
 from controller.NotasWindow import Notas
-#from controller.RecordatoriosWindow import Recordatorios
+from controller.RecordatoriosWindow import Recordatorios
 
 class Main():
     def __init__(self) -> None:
