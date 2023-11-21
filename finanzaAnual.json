@@ -1,0 +1,44 @@
+{
+  "columna0": {
+    "fila0": "2",
+    "fila1": "2",
+    "fila2": "4",
+    "fila3": "3",
+    "fila4": "5",
+    "fila5": "5",
+    "fila6": "6",
+    "fila7": "4",
+    "fila8": "3",
+    "fila9": "4",
+    "fila10": "4",
+    "fila11": "5"
+  },
+  "columna1": {
+    "fila0": "1",
+    "fila1": "2",
+    "fila2": "3",
+    "fila3": "4",
+    "fila4": "3",
+    "fila5": "4",
+    "fila6": "3",
+    "fila7": "2",
+    "fila8": "3",
+    "fila9": "1",
+    "fila10": "1",
+    "fila11": "2"
+  },
+  "columna2": {
+    "fila0": "1",
+    "fila1": "0",
+    "fila2": "2",
+    "fila3": "4",
+    "fila4": "4",
+    "fila5": "3",
+    "fila6": "5",
+    "fila7": "5",
+    "fila8": "5",
+    "fila9": "9",
+    "fila10": "5",
+    "fila11": "6"
+  }
+}

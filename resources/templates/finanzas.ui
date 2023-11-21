@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>875</width>
-    <height>699</height>
+    <width>878</width>
+    <height>688</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -108,10 +108,14 @@
 	height:10px;
 }
 
+#calc1, #calc2, #calc3, #calc4, #calc5{
+	background-color: rgb(255, 255, 255);
+}
+
 </string>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -753,20 +757,1500 @@
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="tab_4">
+            <widget class="QWidget" name="tab_2">
              <attribute name="title">
               <string>Gasto Mensual</string>
              </attribute>
+             <layout class="QGridLayout" name="gridLayout_8">
+              <item row="0" column="0">
+               <widget class="QFrame" name="frameTablaM">
+                <property name="styleSheet">
+                 <string notr="true">#frameTablaM{
+max-width:410px;
+border: 1px solid lightgray;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_7">
+                 <item row="2" column="0">
+                  <widget class="QPushButton" name="btnAplicarM">
+                   <property name="styleSheet">
+                    <string notr="true">#btnAplicarM{
+color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border-radius: 3px;	
+padding: 2px 0px;
+}
+
+#btnAplicarM:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Aplicar y Guardar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QLabel" name="label_23">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QTableWidget" name="tablaMensual">
+                   <property name="styleSheet">
+                    <string notr="true">max-height:400px;</string>
+                   </property>
+                   <property name="alternatingRowColors">
+                    <bool>true</bool>
+                   </property>
+                   <property name="gridStyle">
+                    <enum>Qt::DashLine</enum>
+                   </property>
+                   <row>
+                    <property name="text">
+                     <string>Semana Nro 1</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Semana Nro 2</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Semana Nro 3</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Semana Nro 4</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>TOTALES</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>Ingresos Totales</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Gastos Totales</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Ahorro Neto</string>
+                    </property>
+                   </column>
+                   <item row="4" column="0">
+                    <property name="flags">
+                     <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+                    </property>
+                   </item>
+                   <item row="4" column="1">
+                    <property name="flags">
+                     <set>ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+                    </property>
+                   </item>
+                   <item row="4" column="2">
+                    <property name="flags">
+                     <set>ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QGroupBox" name="groupBox_5">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="title">
+                    <string>Autoevaluación</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_10">
+                    <item row="1" column="0">
+                     <widget class="QScrollArea" name="scrollArea">
+                      <property name="styleSheet">
+                       <string notr="true">max-height:150px;</string>
+                      </property>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="scrollAreaWidgetContents">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>370</width>
+                         <height>150</height>
+                        </rect>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_11">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QTextEdit" name="autoEvM">
+                          <property name="styleSheet">
+                           <string notr="true">max-height:200px;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QPushButton" name="btnGuardarM">
+                          <property name="styleSheet">
+                           <string notr="true">#btnGuardarM{
+color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border:0;
+padding: 2px 0px;
+}
+
+#btnGuardarM:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>Guardar</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QPushButton" name="btnReiniciarM">
+                   <property name="styleSheet">
+                    <string notr="true">#btnReiniciarM{color: rgb(255, 255, 255);
+background-color: rgb(147, 147, 147);
+border-radius: 3px;	
+padding: 2px 20px;
+}
+
+#btnReiniciarM:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Reiniciar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="aviso_txtM">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QGroupBox" name="groupBox_4">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255,255,255);
+</string>
+                   </property>
+                   <property name="title">
+                    <string>Metas</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_9">
+                    <item row="2" column="1">
+                     <widget class="QDoubleSpinBox" name="spin2M"/>
+                    </item>
+                    <item row="4" column="1">
+                     <widget class="QDoubleSpinBox" name="spin3M"/>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_4">
+                      <property name="text">
+                       <string>Ingresos Totales</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QDoubleSpinBox" name="spin1M"/>
+                    </item>
+                    <item row="4" column="0">
+                     <widget class="QLabel" name="label_14">
+                      <property name="text">
+                       <string>Ahorro Neto</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_7">
+                      <property name="text">
+                       <string>Gastos Totales</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="2">
+                     <widget class="QCheckBox" name="check1">
+                      <property name="styleSheet">
+                       <string notr="true">max-width:15px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="2">
+                     <widget class="QCheckBox" name="check2">
+                      <property name="styleSheet">
+                       <string notr="true">max-width:15px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="2">
+                     <widget class="QCheckBox" name="check3">
+                      <property name="styleSheet">
+                       <string notr="true">max-width:15px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="checkable">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QGroupBox" name="groupBox">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="title">
+                 <string/>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <item>
+                  <widget class="QLabel" name="label_18">
+                   <property name="styleSheet">
+                    <string notr="true">max-height:10px;</string>
+                   </property>
+                   <property name="text">
+                    <string>Gráfico Lineal</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frameGraficoM_1">
+                   <property name="styleSheet">
+                    <string notr="true">max-height:300px;</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_6">
+                   <property name="styleSheet">
+                    <string notr="true">max-height: 120px;</string>
+                   </property>
+                   <property name="title">
+                    <string>Referencias</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_12">
+                    <item row="2" column="1">
+                     <widget class="Line" name="line_5">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: red;
+height:0.1px;</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_20">
+                      <property name="styleSheet">
+                       <string notr="true">max-height: 20px;
+max-width: 170px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Los Gastos se representan con:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLabel" name="label_21">
+                      <property name="styleSheet">
+                       <string notr="true">max-height: 20px;
+max-width: 170px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Los Ahorros se representan con:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="Line" name="line_6">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(85, 255, 0);
+height:0.2px;</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_22">
+                      <property name="styleSheet">
+                       <string notr="true">max-height: 20px;
+max-width: 170px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Los Ingresos se representan con:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="Line" name="line_7">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: blue;
+height:0.2px;</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_19">
+                   <property name="styleSheet">
+                    <string notr="true">max-height:10px;</string>
+                   </property>
+                   <property name="text">
+                    <string>Gráfico de Barras</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frameGraficoM_2">
+                   <property name="styleSheet">
+                    <string notr="true">max-height:300px;</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
-            <widget class="QWidget" name="tab_2">
+            <widget class="QWidget" name="tab_4">
              <attribute name="title">
               <string>Gasto Anual</string>
              </attribute>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0">
+               <widget class="QFrame" name="frameTabla">
+                <property name="styleSheet">
+                 <string notr="true">#frameTabla{
+border: 1px solid lightgray;
+max-width: 400px;
+min-width: 400px;
+}
+
+#tablaAnual{
+	max-height: 390px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <item row="6" column="1">
+                  <widget class="QLabel" name="ingresos_txtA">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>0$</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QLabel" name="label_5">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>Total ahorros neto actual:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="1">
+                  <widget class="QLabel" name="ahorros_txtA">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>0$</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0" colspan="2">
+                  <widget class="QTableWidget" name="tablaAnual">
+                   <property name="alternatingRowColors">
+                    <bool>true</bool>
+                   </property>
+                   <property name="gridStyle">
+                    <enum>Qt::DashLine</enum>
+                   </property>
+                   <row>
+                    <property name="text">
+                     <string>Enero</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Febrero</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Marzo</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Abril</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Mayo</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Junio</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Julio</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Agosto</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Septiembre</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Octubre</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Noviembre</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Diciembre</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>Ingresos Totales</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Gastos Totales</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Ahorro Neto</string>
+                    </property>
+                   </column>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="aviso_txtA">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QLabel" name="label">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>Total ingresos actual:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="1">
+                  <widget class="QLabel" name="gastos_txtA">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>0$</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="0">
+                  <widget class="QLabel" name="label_3">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>Total gastos actual:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QPushButton" name="btnAplicarA">
+                   <property name="styleSheet">
+                    <string notr="true">#btnAplicarA{
+color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border-radius: 3px;	
+padding: 2px 0px;
+}
+
+#btnAplicarA:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Aplicar y Guardar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QPushButton" name="btnReiniciarA">
+                   <property name="styleSheet">
+                    <string notr="true">#btnReiniciarA{color: rgb(255, 255, 255);
+background-color: rgb(147, 147, 147);
+border-radius: 3px;	
+padding: 2px 20px;
+}
+
+#btnReiniciarA:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Reiniciar</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QGroupBox" name="segundaSeccionM">
+                <property name="styleSheet">
+                 <string notr="true">#frameGraficoM{
+	height: 500px;
+}
+
+#segundaSeccionM{
+	background-color: rgb(255, 255, 255);
+}
+</string>
+                </property>
+                <property name="title">
+                 <string/>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_5">
+                 <item row="1" column="0">
+                  <widget class="QFrame" name="frameGraficoA">
+                   <property name="styleSheet">
+                    <string notr="true">max-height: 300px;</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="Line" name="line">
+                   <property name="styleSheet">
+                    <string notr="true">margin-top: 1px;</string>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QGroupBox" name="groupBox_2">
+                   <property name="styleSheet">
+                    <string notr="true">max-height: 120px;</string>
+                   </property>
+                   <property name="title">
+                    <string>Referencias</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_6">
+                    <item row="2" column="1">
+                     <widget class="Line" name="line_2">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: red;
+height:0.1px;</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_10">
+                      <property name="styleSheet">
+                       <string notr="true">max-height: 20px;
+max-width: 170px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Los Gastos se representan con:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLabel" name="label_9">
+                      <property name="styleSheet">
+                       <string notr="true">max-height: 20px;
+max-width: 170px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Los Ahorros se representan con:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="Line" name="line_3">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(85, 255, 0);
+height:0.2px;</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_8">
+                      <property name="styleSheet">
+                       <string notr="true">max-height: 20px;
+max-width: 170px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Los Ingresos se representan con:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="Line" name="line_4">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: blue;
+height:0.2px;</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_11">
+                   <property name="styleSheet">
+                    <string notr="true">max-height: 20px;</string>
+                   </property>
+                   <property name="text">
+                    <string>Gráfico Lineal que refleja su resumen anual:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QGroupBox" name="groupBox_3">
+                   <property name="styleSheet">
+                    <string notr="true">max-height: 80px;</string>
+                   </property>
+                   <property name="title">
+                    <string>Retroalimentación</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
+                    <item>
+                     <widget class="QLabel" name="conclusion_txtA">
+                      <property name="text">
+                       <string>Aquí aparecerá tu retroalimentación una vez que guardes los cambios</string>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="tab">
              <attribute name="title">
               <string>Calculadora</string>
              </attribute>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QGroupBox" name="calc1">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="title">
+                 <string>Calcular Interés</string>
+                </property>
+                <layout class="QFormLayout" name="formLayout_4">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_2">
+                   <property name="text">
+                    <string>Precio Original</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="input1">
+                   <property name="styleSheet">
+                    <string notr="true">max-width: 150px;</string>
+                   </property>
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <spacer name="verticalSpacer_17">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_12">
+                   <property name="text">
+                    <string>Interés</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QDoubleSpinBox" name="spin1">
+                   <property name="maximum">
+                    <double>100.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <spacer name="verticalSpacer_18">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QLabel" name="label_37">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="1">
+                  <spacer name="verticalSpacer_19">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QPushButton" name="btnReiniciar1">
+                   <property name="styleSheet">
+                    <string notr="true">#btnReiniciar1{color: rgb(255, 255, 255);
+background-color: rgb(147, 147, 147);
+border-radius: 3px;	
+padding: 2px 20px;
+}
+
+#btnReiniciar1:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Reiniciar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="QPushButton" name="btnCalcular1">
+                   <property name="styleSheet">
+                    <string notr="true">#btnCalcular1{
+color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border-radius: 3px;	
+padding: 2px 0px;
+}
+
+#btnCalcular1:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Calcular</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="1">
+                  <spacer name="verticalSpacer_20">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="9" column="0">
+                  <widget class="QLabel" name="label_6">
+                   <property name="text">
+                    <string>Resultado:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="1">
+                  <widget class="QLabel" name="rta1">
+                   <property name="text">
+                    <string>0$</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0" colspan="2">
+                  <widget class="QLabel" name="aviso1">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="calc2">
+                <property name="title">
+                 <string>Calcular Descuento</string>
+                </property>
+                <layout class="QFormLayout" name="formLayout_3">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_15">
+                   <property name="text">
+                    <string>Precio Original</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="input2">
+                   <property name="styleSheet">
+                    <string notr="true">max-width: 150px;</string>
+                   </property>
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <spacer name="verticalSpacer_15">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_17">
+                   <property name="text">
+                    <string>Descuento</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QDoubleSpinBox" name="spin2">
+                   <property name="maximum">
+                    <double>100.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <spacer name="verticalSpacer_14">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QLabel" name="label_36">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="1">
+                  <spacer name="verticalSpacer_16">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QPushButton" name="btnReiniciar2">
+                   <property name="styleSheet">
+                    <string notr="true">#btnReiniciar2{color: rgb(255, 255, 255);
+background-color: rgb(147, 147, 147);
+border-radius: 3px;	
+padding: 2px 20px;
+}
+
+#btnReiniciar2:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Reiniciar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="QPushButton" name="btnCalcular2">
+                   <property name="styleSheet">
+                    <string notr="true">#btnCalcular2{
+color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border-radius: 3px;	
+padding: 2px 0px;
+}
+
+#btnCalcular2:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Calcular</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="1">
+                  <spacer name="verticalSpacer_13">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="9" column="0">
+                  <widget class="QLabel" name="label_13">
+                   <property name="text">
+                    <string>Resultado:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="1">
+                  <widget class="QLabel" name="rta2">
+                   <property name="text">
+                    <string>0$</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0" colspan="2">
+                  <widget class="QLabel" name="aviso2">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="calc5">
+                <property name="title">
+                 <string>Calcular precio por cuota</string>
+                </property>
+                <layout class="QFormLayout" name="formLayout">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_33">
+                   <property name="text">
+                    <string>Precio Original</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="input3">
+                   <property name="styleSheet">
+                    <string notr="true">max-width: 150px;</string>
+                   </property>
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <spacer name="verticalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_34">
+                   <property name="text">
+                    <string>Interés</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QDoubleSpinBox" name="spin3_1">
+                   <property name="maximum">
+                    <double>100.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <spacer name="verticalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="label_35">
+                   <property name="text">
+                    <string>Cuotas</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QDoubleSpinBox" name="spin3_2">
+                   <property name="minimum">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="maximum">
+                    <double>100.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="1">
+                  <spacer name="verticalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="QPushButton" name="btnCalcular3">
+                   <property name="styleSheet">
+                    <string notr="true">#btnCalcular3{
+color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border-radius: 3px;	
+padding: 2px 0px;
+}
+
+#btnCalcular3:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Calcular</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="1">
+                  <spacer name="verticalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="9" column="0">
+                  <widget class="QLabel" name="label_31">
+                   <property name="text">
+                    <string>Resultado:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="1">
+                  <widget class="QLabel" name="rta3">
+                   <property name="text">
+                    <string>0$</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QPushButton" name="btnReiniciar3">
+                   <property name="styleSheet">
+                    <string notr="true">#btnReiniciar3{color: rgb(255, 255, 255);
+background-color: rgb(147, 147, 147);
+border-radius: 3px;	
+padding: 2px 20px;
+}
+
+#btnReiniciar3:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Reiniciar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0" colspan="2">
+                  <widget class="QLabel" name="aviso3">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="calc4">
+                <property name="title">
+                 <string>Calcular meta de ahorro </string>
+                </property>
+                <layout class="QFormLayout" name="formLayout_2">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_29">
+                   <property name="text">
+                    <string>Meta</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="input4">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <spacer name="verticalSpacer_5">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_30">
+                   <property name="text">
+                    <string>Meses</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QSpinBox" name="spin4">
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>12</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <spacer name="verticalSpacer_7">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="5" column="1">
+                  <spacer name="verticalSpacer_8">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="7" column="1">
+                  <spacer name="verticalSpacer_6">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="9" column="0">
+                  <widget class="QLabel" name="label_26">
+                   <property name="text">
+                    <string>Resultado:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="1">
+                  <widget class="QLabel" name="rta4">
+                   <property name="text">
+                    <string>0$</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QLabel" name="label_16">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="QPushButton" name="btnCalcular4">
+                   <property name="styleSheet">
+                    <string notr="true">#btnCalcular4{
+color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border-radius: 3px;	
+padding: 2px 0px;
+}
+
+#btnCalcular4:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Calcular</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QPushButton" name="btnReiniciar4">
+                   <property name="styleSheet">
+                    <string notr="true">#btnReiniciar4{color: rgb(255, 255, 255);
+background-color: rgb(147, 147, 147);
+border-radius: 3px;	
+padding: 2px 20px;
+}
+
+#btnReiniciar4:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Reiniciar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0" colspan="2">
+                  <widget class="QLabel" name="aviso4">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
