@@ -3,6 +3,7 @@ from PyQt6 import uic
 from controller.FinanzasWindow import Finanza
 from controller.NotasWindow import Notas
 from controller.RecordatoriosWindow import Recordatorios
+from controller.TiempoWindow import Tiempo
 
 class Main():
     def __init__(self) -> None:
@@ -12,6 +13,7 @@ class Main():
         self.accederNotas()
         self.accederRecordatorios()
         #self.accederHorarios()
+        self.accederTiempo()
 
     def accederFinanzas(self):
         self.main.btnFinanzas.clicked.connect(self.abrirFinanzas)
@@ -30,3 +32,9 @@ class Main():
 
     def abrirNotas(self):
         self.notas = Notas()
+
+    def accederTiempo(self):
+        self.main.btnTiempo.clicked.connect(self.abrirTiempo)
+
+    def abrirTiempo(self):
+        self.notas = Tiempo()
