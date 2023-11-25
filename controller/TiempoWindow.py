@@ -1,21 +1,17 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QVBoxLayout
-from PyQt6.QtWidgets import QTableWidgetItem
-from PyQt6.QtCore import Qt
 import json
-import numpy as np
-import math
 
 from PyQt6.QtGui import QIntValidator
+
 
 class Tiempo():
 
     def __init__(self) -> None:
-        self.tiempo = uic.loadUi("../SLI_Trabajo_Final/resources/templates/prueba2.ui")
+        self.tiempo = uic.loadUi("../SLI_Trabajo_Final/resources/templates/tiempo.ui")
 
         # Esto permite solamente el ingreso de enteros entre el rango 0~24
         onlyInt = QIntValidator()
-        onlyInt.setRange(0, 24)
+        onlyInt.setRange(0, 9)
         self.tiempo.txtTrabajar.setValidator(onlyInt)
         self.tiempo.txtEstudiar.setValidator(onlyInt)
         self.tiempo.txtComer.setValidator(onlyInt)
@@ -56,27 +52,48 @@ class Tiempo():
 
     # Calcula el resultado de la evaluación
     def calcularResultado(self, horasDelDia, trabajar, estudiar, comer, descansar, jugar, viajar, deportes):
-        resultado = 'Tienes ' + str(horasDelDia) + ' horas disponibles '
-        if horasDelDia <= 0:
-            resultado = 'Tienes 0 horas disponibles '
-
-        if horasDelDia > 6:
-            if trabajar < 4 or estudiar < 2:
-                resultado +=  ', dedicale más tiempo al trabajo o estudio.'
+        resultado = str(horasDelDia) + ' horas disponibles: '
+        if horasDelDia > 7:
+            if trabajar == 0:
+                resultado += 'Puedes trabajar en algo'
+            elif estudiar == 0:
+                resultado += 'Puedes estudiar algo'
+            elif deportes > 4 and descansar < 7:
+                resultado += 'Descansar tambien es entrenar'
             else:
-                resultado += ', tienes tiempo para descansar y jugar'
-        elif horasDelDia > 4:
-            if viajar > 6:
-                resultado += ', deberías mudarte a un lugar más cercano'
-            elif jugar > 6:
-                resultado += ', al parecer eres jugador profesional'
+                resultado += 'Todo en orden'
+        elif horasDelDia > 3:
+            if trabajar > 3 and estudiar > 3 and descansar > 6:
+                resultado += 'Vas bien, sigue así'
+            elif jugar > 3:
+                resultado += 'Debes dejar de jugar tanto'
+            elif comer > 3:
+                resultado += 'No comas tanto'
+            elif viajar > 3:
+                resultado += 'Deberías mudarte para ahorrar tiempo'
             else:
-                resultado += ', vamos bien'
+                resultado += 'Todo en orden'
+        elif horasDelDia >= 0:
+            if descansar > 8:
+                resultado += 'Te relajas demasiado'
+            elif trabajar > 8:
+                resultado += 'Trabajas demasiado'
+            elif estudiar > 8:
+                resultado += 'Estudias demasiado'
+            elif jugar > 8:
+                resultado += 'Juegas demasiado'
+            elif viajar > 8:
+                resultado += 'Definitivamente debes mudarte'
+            elif comer > 4:
+                resultado += 'Comes demasiado'
+            elif deportes > 5:
+                resultado += 'Descansar tambien es entrenar'
+            else:
+                resultado += 'Tomate las cosas con calma'
         else:
-            if descansar > 8 or jugar > 8:
-                resultado += ',no es bueno relajarse tanto'
-            else:
-                resultado += ',algo anda mal'
+            return 'Error en el calculo, revisa nuevamente'
+        if descansar < 7:
+                resultado += ', no olvides descansar'
         return resultado
 
     # Son lo métodos que se activan al realizar un cambio en cada txt
@@ -110,7 +127,7 @@ class Tiempo():
         self.tiempo.lblResultado.setText(datos["resultado"])
 
 
-    # Guarda los datos luego de cada cambio
+    # Guarda los datos luego de cada cambio y crea un archivo nuevo si no existe el JSON
     def guardarDatos(self):
         datos = {}
         datos["trabajar"] = self.tiempo.txtTrabajar.text()
@@ -126,3 +143,4 @@ class Tiempo():
                 json.dump(datos, archivo, indent=2)
         except:
             self.tiempo.lblResultado.setText('No se encontró el archivo de datos')
+
