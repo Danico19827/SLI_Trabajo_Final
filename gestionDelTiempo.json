@@ -1,10 +1,10 @@
 {
-  "trabajar": "8",
+  "trabajar": "4",
   "estudiar": "4",
-  "comer": "1",
-  "descansar": "2",
-  "jugar": "0",
-  "viajar": "0",
+  "comer": "2",
+  "descansar": "8",
+  "jugar": "4",
+  "viajar": "2",
   "deportes": "0",
-  "resultado": "Tienes 9 horas disponibles , tienes tiempo para descansar y jugar"
+  "resultado": "0 horas disponibles: Tomate las cosas con calma"
 }
