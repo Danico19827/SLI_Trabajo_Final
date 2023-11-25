@@ -115,7 +115,7 @@
 </string>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -419,7 +419,7 @@
                </spacer>
               </item>
               <item row="4" column="1" colspan="18" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-               <widget class="QTableWidget" name="tablaInput">
+               <widget class="QTableWidget" name="tablaSemanal">
                 <property name="minimumSize">
                  <size>
                   <width>815</width>
@@ -985,10 +985,18 @@ padding: 2px 20px;
                    </property>
                    <layout class="QGridLayout" name="gridLayout_9">
                     <item row="2" column="1">
-                     <widget class="QDoubleSpinBox" name="spin2M"/>
+                     <widget class="QDoubleSpinBox" name="spin2M">
+                      <property name="maximum">
+                       <double>999999999.990000009536743</double>
+                      </property>
+                     </widget>
                     </item>
                     <item row="4" column="1">
-                     <widget class="QDoubleSpinBox" name="spin3M"/>
+                     <widget class="QDoubleSpinBox" name="spin3M">
+                      <property name="maximum">
+                       <double>999999999.990000009536743</double>
+                      </property>
+                     </widget>
                     </item>
                     <item row="0" column="0">
                      <widget class="QLabel" name="label_4">
@@ -998,7 +1006,11 @@ padding: 2px 20px;
                      </widget>
                     </item>
                     <item row="0" column="1">
-                     <widget class="QDoubleSpinBox" name="spin1M"/>
+                     <widget class="QDoubleSpinBox" name="spin1M">
+                      <property name="maximum">
+                       <double>999999999.990000009536743</double>
+                      </property>
+                     </widget>
                     </item>
                     <item row="4" column="0">
                      <widget class="QLabel" name="label_14">
@@ -1016,6 +1028,9 @@ padding: 2px 20px;
                     </item>
                     <item row="0" column="2">
                      <widget class="QCheckBox" name="check1">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">max-width:15px;</string>
                       </property>
@@ -1023,12 +1038,18 @@ padding: 2px 20px;
                        <string/>
                       </property>
                       <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="checked">
                        <bool>false</bool>
                       </property>
                      </widget>
                     </item>
                     <item row="2" column="2">
                      <widget class="QCheckBox" name="check2">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">max-width:15px;</string>
                       </property>
@@ -1036,12 +1057,15 @@ padding: 2px 20px;
                        <string/>
                       </property>
                       <property name="checkable">
-                       <bool>false</bool>
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
                     <item row="4" column="2">
                      <widget class="QCheckBox" name="check3">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">max-width:15px;</string>
                       </property>
@@ -1049,7 +1073,7 @@ padding: 2px 20px;
                        <string/>
                       </property>
                       <property name="checkable">
-                       <bool>false</bool>
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
