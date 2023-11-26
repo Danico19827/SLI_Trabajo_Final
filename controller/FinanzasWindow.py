@@ -92,7 +92,10 @@ class Finanza():
         for fila in range(numFilas):
             for columna in range(numColumnas):
                 item = tabla.item(fila, columna)
-                if item is not None:
+                if len(item.text()) == 0:
+                    valor = 0
+                    tabla.setItem(fila, columna, QTableWidgetItem(str(valor)))
+                else:
                     valor = item.text()
                     if not self.validarNumero(valor):
                         valoresValidos = False
