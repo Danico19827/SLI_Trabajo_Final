@@ -33,6 +33,7 @@ class Finanza():
 
 #----------------------------------Finanza Semanal----------------------------------#
 
+    #Inicializa el funcionamiento de los botones 'aplicar'
     def aplicar(self):
         self.finanzas.btnAplicar.clicked.connect(lambda: self.comprobarDatos("Semanal"))
         self.finanzas.btnAplicarM.clicked.connect(lambda: self.comprobarDatos("Mensual"))
@@ -43,6 +44,7 @@ class Finanza():
         self.finanzas.btnCalcular3.clicked.connect(self.cuotaCalculadora)
         self.finanzas.btnCalcular4.clicked.connect(self.metaCalculadora)
 
+    #Inicializa el funcionamiento de los botones 'reiniciar'
     def reiniciar(self):
         self.finanzas.btnReiniciar.clicked.connect(lambda: self.reiniciarDatos("Semanal"))
         self.finanzas.btnReiniciarM.clicked.connect(lambda: self.reiniciarDatos("Mensual"))
@@ -52,6 +54,7 @@ class Finanza():
         self.finanzas.btnReiniciar3.clicked.connect(self.reiniciarValoresCuota)
         self.finanzas.btnReiniciar4.clicked.connect(self.reiniciarValoresMeta)
 
+    #Detecta el tipo de Finanzas y obtiene los datos del archivo JSON
     def cargarDatos(self, tipo):
         try:
             with open(f'finanza{tipo}.json', 'r') as archivo:
@@ -61,6 +64,7 @@ class Finanza():
             self.finanzas.aviso_txt.setText("No se encontró el archivo de datos")
         self.cargarValores(tipo)
     
+    #Insertan los valores en su lugar correspondientes apenas inicie el programa
     def cargarValores(self, tipo):
         if tipo == "Semanal":
             self.calcularGastos(tipo)
@@ -75,6 +79,7 @@ class Finanza():
             self.calcularAhorro(tipo)
             self.calcularIngreso(tipo)
 
+    #Llena las tablas con los datos obtenidos del archivo JSON
     def llenarTablaDesdeJSON(self, datos, tipo):
         tabla = self.tablas[tipo]
         for columna, filas in datos.items():
@@ -83,12 +88,12 @@ class Finanza():
                 fil = int(fila.replace("fila", ""))
                 tabla.setItem(fil, col, QTableWidgetItem(str(valor)))
 
+    #Verifica que los datos ingresados en cada celda de la tabla sean números
     def comprobarDatos(self, tipo):
         tabla = self.tablas[tipo]
         numFilas = tabla.rowCount()
         numColumnas = tabla.columnCount()
         valoresValidos = True
-
         for fila in range(numFilas):
             for columna in range(numColumnas):
                 item = tabla.item(fila, columna)
@@ -100,7 +105,6 @@ class Finanza():
                     if not self.validarNumero(valor):
                         valoresValidos = False
                         break
-
         if valoresValidos:
             if tipo == "Semanal":
                 self.guardarDatos(tipo)
@@ -130,12 +134,12 @@ class Finanza():
             elif tipo == "Mensual": self.finanzas.aviso_txtM.setText("Se encontraron valores inválidos")
             else: self.finanzas.aviso_txtA.setText("Se encontraron valores inválidos")
 
+    #Guarda los datos actuales de las tablas en el archivo JSON
     def guardarDatos(self, tipo):
         tabla = self.tablas[tipo]
         numFilas = tabla.rowCount()
         numColumnas = tabla.columnCount()
         datos = {}
-
         for columna in range(numColumnas):
             datos[f"columna{columna}"] = {}
             for fila in range(numFilas):
@@ -145,10 +149,10 @@ class Finanza():
                 else:
                     valor = 0
                 datos[f"columna{columna}"][f"fila{fila}"] = valor
-
         with open(f'finanza{tipo}.json', 'w') as archivo:
             json.dump(datos, archivo, indent=2)
 
+    #Reinicia las celdas de la tabla dandole los valores por defecto
     def reiniciarDatos(self, tipo):
         if tipo == "Semanal": 
             tabla = self.finanzas.tablaSemanal
@@ -177,6 +181,7 @@ class Finanza():
         self.guardarDatos(tipo)
         self.grafico(tipo)
         
+    #Verfica si el str ingresado se puede convertir a int
     def validarNumero(self, item):
         try:
             int(item)
@@ -186,6 +191,7 @@ class Finanza():
         
     #OPERACIONES
 
+    #Calcula los Gastos de las tablas
     def calcularGastos(self, tipo):
         tabla = self.tablas[tipo]
         numFilas = tabla.rowCount()
@@ -211,7 +217,7 @@ class Finanza():
         else:
             self.finanzas.gastos_txtA.setText(str(totalGasto))
             
-
+    #Calcula los Ahorros de las tablas
     def calcularAhorro(self, tipo):
         tabla = self.tablas[tipo]
         numColumnas = tabla.columnCount()
@@ -237,6 +243,7 @@ class Finanza():
             totalAhorros = suma
             self.finanzas.ahorros_txtA.setText(str(totalAhorros))
 
+    #Calcula los Ingresos de las tablas
     def calcularIngreso(self, tipo):
         tabla = self.tablas[tipo]
         numFilas = tabla.rowCount()
@@ -255,6 +262,7 @@ class Finanza():
             totalIngresos = int(suma)
             self.finanzas.ingresos_txtA.setText(str(totalIngresos))
 
+    #Muestra una retoalimentación según los resultados obtenidos
     def mostrarConclusion(self, tipo):
         if tipo == "Semanal":
             ingresos = self.finanzas.ingresosInput.text()
@@ -288,6 +296,7 @@ class Finanza():
             else:
                 self.finanzas.aviso_txtA.setText("Error") 
     
+    #Suma todos los gastos de una columna en particular
     def gastosColumna(self, columna, tipo):
         tabla = self.tablas[tipo]
         numFilas = tabla.rowCount()
@@ -299,6 +308,7 @@ class Finanza():
                     suma = suma + int(item.text())
         return suma
     
+    #Inserta en una lista cada gasto de una columna en particular
     def valoresColumna(self, columna, lista, tipo):
         tabla = self.tablas[tipo]
         numFilas = tabla.rowCount()
@@ -313,6 +323,7 @@ class Finanza():
                 valor = int(item.text())
                 lista.append(valor)
 
+    #Borra o Reinicia los gráficos
     def borrarGrafico(self, tipo):
         if tipo == "Semanal":
             if self.plot is not None:
@@ -326,6 +337,7 @@ class Finanza():
             if self.plotLineal is not None:
                 self.plotLineal.hide() 
 
+    #Crea los diferentes gráficos
     def grafico(self, tipo):
         self.borrarGrafico(tipo) 
         if tipo == "Semanal":
@@ -423,6 +435,7 @@ class Finanza():
             self.finanzas.frameGraficoA.layout().addWidget(plotLineal)
             self.plotLineal = plotLineal
 
+    #Verifica si las metas de Finanza Mensual se cumplieron
     def comprobarMetas(self):
         if int(self.finanzas.tablaMensual.item(4, 0).text()) >= self.finanzas.spin1M.value():
             self.finanzas.check1.setChecked(True)
@@ -437,11 +450,13 @@ class Finanza():
         else:
             self.finanzas.check3.setChecked(False)
 
+    #Guarda la autoevaluación en un TxT
     def guardarTxT(self):
         texto = self.finanzas.autoEvM.toPlainText()
         with open("finanzaAutoEvaluacion.txt", "w") as archivo:
             archivo.write(str(texto))
         
+    #Lee la autoevaluación que se encuentra en le TxT
     def leerTxt(self):
         with open("finanzaAutoEvaluacion.txt", "r") as archivo:
             texto = archivo.read()
@@ -450,6 +465,7 @@ class Finanza():
 
 #----------------------------------Calculadora----------------------------------#
 
+    #Calcula el precio final teniendo en cuenta el precio original y el interés
     def interesCalculadora(self):
         if self.validarNumero(self.finanzas.input1.text()):
             precio = int(self.finanzas.input1.text())
@@ -460,12 +476,14 @@ class Finanza():
         else:
             self.finanzas.aviso1.setText("Valores Invalidos")
 
+    #Reinicia los valores 
     def reiniciarValoresInteres(self):
         self.finanzas.input1.setText("0")
         self.finanzas.spin1.setValue(00.0)
         self.finanzas.rta1.setText("0$")
         self.finanzas.aviso1.setText("")
 
+    #Calcula el precio final teniendo en cuenta el precio original y el descuento
     def descuentoCalculadora(self):
         if self.validarNumero(self.finanzas.input2.text()):
             precio = int(self.finanzas.input2.text())
@@ -476,12 +494,14 @@ class Finanza():
         else:
             self.finanzas.aviso2.setText("Valores Invalidos")
 
+    #Reinicia los valores
     def reiniciarValoresDescuento(self):
         self.finanzas.input2.setText("0")
         self.finanzas.spin2.setValue(00.0)
         self.finanzas.rta2.setText("0$")
         self.finanzas.aviso2.setText("")
 
+    #Calcula el precio de cada Cuota teniendo en cuenta el precio original, el interes y la cantidad de cuotas
     def cuotaCalculadora(self):
         if self.validarNumero(self.finanzas.input3.text()):
             if self.finanzas.spin3_1.value() == 00.0:
@@ -495,6 +515,7 @@ class Finanza():
         else:
             self.finanzas.aviso3.setText("Valores Invalidos")
 
+    #Reinicia los valores
     def reiniciarValoresCuota(self):
         self.finanzas.input3.setText("0")
         self.finanzas.spin3_1.setValue(00.0)
@@ -502,6 +523,7 @@ class Finanza():
         self.finanzas.rta3.setText("0$")
         self.finanzas.aviso3.setText("")
 
+    #Calcula cuanto debes ahorrar por mes para llegar a una meta establecida
     def metaCalculadora(self):
         if self.validarNumero(self.finanzas.input4.text()):
             meta = int(self.finanzas.input4.text())
@@ -512,6 +534,7 @@ class Finanza():
         else:
             self.finanzas.aviso4.setText("Valores Invalidos")
 
+    #Reinicia los valores
     def reiniciarValoresMeta(self):
         self.finanzas.input4.setText("0")
         self.finanzas.spin4.setValue(0)
