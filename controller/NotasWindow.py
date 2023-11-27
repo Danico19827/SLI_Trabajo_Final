@@ -1,26 +1,3 @@
-'''
-from PyQt6 import uic
-from PyQt6.QtWidgets import QDialog
-
-class Notas():
-    def __init__(self) -> None:
-        self.notas = uic.loadUi("../SLI_Trabajo_Final/resources/templates/notas.ui")
-        self.notas.showMaximized()
-        self.notas.btn_guardar.clicked.connect(self.clickedHandler)
-        self.notas.btn_cancelar.clicked.connect(self.clickedHandler)
-        #self.btn_archivadas.clicked.connect(self.clickedHandler)
-        #self.btn_creadas.clicked.connect(self.clickedHandler)
-        
-        
-    def clickedHandler(self):
-        print("click")
-        contenido_nota = self.notas.ptxt_contenidoNota.toPlainText()
-        titulo_nota = self.notas.txt_tituloNota.text()
-        
-
-        if contenido_nota.strip() != "" and titulo_nota.strip() != "":
-            self.notas.wdglist_notasCreadas.addItem((titulo_nota) +  (contenido_nota))
-'''
 from PyQt6 import uic
 import json
 from PyQt6.QtWidgets import QMessageBox, QApplication ,QApplication,QFileDialog
@@ -32,24 +9,27 @@ class Notas():
     def __init__(self) -> None:
         self.notas = uic.loadUi("../SLI_Trabajo_Final/resources/templates/notas.ui")
         self.notas.showMaximized()
+        #Comienza Leyendo la Nota 1
+        self.leerNota(self.notas.comboBox.currentText())
     
         #(Botones)
-        self.notas.btn_guardar.clicked.connect(self.Guardar)
+        self.notas.btn_guardar.clicked.connect(self.GuardarNota)
         self.notas.btn_cancelar.clicked.connect(self.Cancelar)
-        self.notas.btn_copiar.clicked.connect(self.HeCopiar)
-        self.notas.btn_cortar.clicked.connect(self.HeCortar)
-        self.notas.btn_pegar.clicked.connect(self.HePegar)
-        self.notas.btn_borrar.clicked.connect(self.HeBorrar)
+        self.notas.btn_copiar.clicked.connect(self.Copiar)
+        self.notas.btn_cortar.clicked.connect(self.Cortar)
+        self.notas.btn_pegar.clicked.connect(self.Pegar)
+        self.notas.btn_borrar.clicked.connect(self.Borrar)
+        self.notas.comboBox.currentIndexChanged.connect(lambda index: self.leerNota(self.notas.comboBox.itemText(index)))
 
         #(Funcionalidad)
-    def HeCopiar (self):
+    def Copiar(self):
         cursor = self.notas.pte_contenido.textCursor()
         selected_text = cursor.selectedText()
         if selected_text:
             clipboard = QApplication.clipboard()
             clipboard.setText(selected_text)
 
-    def HeCortar (self):
+    def Cortar(self):
         cursor = self.notas.pte_contenido.textCursor()
         selected_text = cursor.selectedText()
         if selected_text:
@@ -57,43 +37,43 @@ class Notas():
             clipboard = QApplication.clipboard()
             clipboard.setText(selected_text)
 
-    def HePegar (self):
+    def Pegar(self):
         clipboard = QApplication.clipboard()
         text_to_paste = clipboard.text()
         if text_to_paste:
             cursor = self.notas.pte_contenido.textCursor()
             cursor.insertText(text_to_paste)
 
-    def HeBorrar (self):
+    def Borrar(self):
         self.notas.pte_contenido.clear()
 
-    def Guardar (self):
-        mensaje = QMessageBox()
-        mensaje.setWindowTitle("Mensaje")
-        mensaje.setText("Archivo Guardado")
-        mensaje.exec()
+    def GuardarNota(self):
+        nota = self.notas.comboBox.currentText()
+        nota = str(nota).lower().replace(" ", "")
+        contenido = self.notas.pte_contenido.toPlainText()
+        try:
+            with open('notas.json', 'r') as archivo:
+                datos = json.load(archivo)
+            datos[nota] = contenido
 
-        contenido_nota=self.notas.pte_contenido.toPlainText()
-        nombre, _ = QFileDialog.getSaveFileName(self, 'Guardar JSON', '', 'Archivos JSON (*.json);;Todos los Archivos (*)')
+            with open('notas.json', 'w') as archivo:
+                json.dump(datos, archivo, indent=2)
+        except FileNotFoundError as e:
+            print(e)
 
-        if nombre:
-            with open(nombre, 'w') as guardado:
-                json.dump({'Contenido Nota': contenido_nota}, guardado, indent=2)
+        
 
-    '''
-        if contenido_nota.strip() != "":
-            nota1 = self.notas.pte_contenido.toPlainText()
-            with open("n1.txt", "w") as n1:
-                n1.write(str(nota1))
-    '''
+    def leerNota(self, nota):
+        nota = str(nota).lower().replace(" ", "")
+        try:
+            with open('notas.json', 'r') as archivo:
+                datos = json.load(archivo)
+                contenido = datos[nota]
+                self.notas.pte_contenido.setPlainText(str(contenido))
+        except FileNotFoundError as e:
+            print(e)
 
-            
-    def leerTxt(self):
-        with open("n1.txt", "r") as archivo:
-            texto = archivo.read()
-            self.finanzas.autoEvM.setText(str(texto))
-
-    def Cancelar (self):
+    def Cancelar(self):
         self.notas.pte_contenido.clear()
 
 

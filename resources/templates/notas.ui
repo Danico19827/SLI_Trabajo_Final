@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Notas</string>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -136,7 +136,58 @@
         </widget>
        </item>
        <item row="8" column="0">
-        <widget class="QComboBox" name="comboBox_2"/>
+        <widget class="QComboBox" name="comboBox">
+         <item>
+          <property name="text">
+           <string>Nota 1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 6</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 7</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 8</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 9</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nota 10</string>
+          </property>
+         </item>
+        </widget>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="lbl_misNotas">
@@ -144,7 +195,6 @@
           <font>
            <family>Bahnschrift Light SemiCondensed</family>
            <pointsize>26</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -223,7 +273,7 @@
      <x>0</x>
      <y>0</y>
      <width>1022</width>
-     <height>27</height>
+     <height>19</height>
     </rect>
    </property>
    <property name="sizePolicy">
