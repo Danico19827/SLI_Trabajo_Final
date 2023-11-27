@@ -9,7 +9,7 @@ import math
 class Finanza():
 
     def __init__(self) -> None:
-        self.finanzas = uic.loadUi("../SLI_Trabajo_Final/resources/templates/finanzas.ui")
+        self.finanzas = uic.loadUi("view/finanzas.ui")
         self.finanzas.show()
         self.finanzas.showMaximized()
         self.tablas = {"Semanal": self.finanzas.tablaSemanal,"Mensual": self.finanzas.tablaMensual,"Anual": self.finanzas.tablaAnual}

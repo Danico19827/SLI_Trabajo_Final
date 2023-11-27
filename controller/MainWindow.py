@@ -7,7 +7,7 @@ from controller.HorariosWindow import Horario
 
 class Main():
     def __init__(self) -> None:
-        self.main = uic.loadUi("../SLI_Trabajo_Final/resources/templates/main.ui")
+        self.main = uic.loadUi("view/main.ui")
         self.main.showMaximized()
         self.acceder()
 

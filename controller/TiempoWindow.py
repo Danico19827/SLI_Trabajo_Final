@@ -7,7 +7,7 @@ from PyQt6.QtGui import QIntValidator
 class Tiempo():
 
     def __init__(self) -> None:
-        self.tiempo = uic.loadUi("../SLI_Trabajo_Final/resources/templates/tiempo.ui")
+        self.tiempo = uic.loadUi("view/tiempo.ui")
 
         # Esto permite solamente el ingreso de enteros entre el rango 0~24
         onlyInt = QIntValidator()
@@ -111,7 +111,6 @@ class Tiempo():
         try:
             with open('gestionDelTiempo.json', 'r') as archivo:
                 datos = json.load(archivo)
-                print(datos)
                 self.llenarCamposDesdeJSON(datos)
         except FileNotFoundError:
             self.tiempo.lblResultado.setText("No se encontró el archivo de datos")

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1185</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1185</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Horario</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true">#frame{
+background-image: url(imagenes/fondo.png);
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="styleSheet">
+          <string notr="true">#tab{
+background-image: url(imagenes/frame.png);
+background-position: center;
+}</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab">
+          <attribute name="title">
+           <string>Horario</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
+               <widget class="QTableWidget" name="tablaHorario">
+                <property name="styleSheet">
+                 <string notr="true">max-width:760px;
+background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="gridStyle">
+                 <enum>Qt::DashLine</enum>
+                </property>
+                <row>
+                 <property name="text">
+                  <string>05:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>05:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>06:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>06:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>07:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>07:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>08:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>08:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>09:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>09:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>10:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>10:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>11:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>11:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>12:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>12:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>13:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>13:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>14:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>14:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>15:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>15:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>16:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>16:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>17:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>17:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>18:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>18:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>19:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>19:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>20:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>20:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>21:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>21:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>22:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>22:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>23:00</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>23:30</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>00:00</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>Lunes</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Martes</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Miércoles</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Jueves</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Viernes</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Sábado</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Domingo</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QGroupBox" name="groupBox">
+                <property name="styleSheet">
+                 <string notr="true">max-width:340px;;</string>
+                </property>
+                <property name="title">
+                 <string/>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout">
+                 <item>
+                  <spacer name="verticalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="styleSheet">
+                    <string notr="true">max-height:20px;</string>
+                   </property>
+                   <property name="text">
+                    <string>Calendario</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCalendarWidget" name="calendarWidget">
+                   <property name="styleSheet">
+                    <string notr="true">max-height: 200px;
+color: black</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_2">
+                   <property name="title">
+                    <string>Opciones</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <item>
+                     <widget class="QPushButton" name="btnGuardarH">
+                      <property name="styleSheet">
+                       <string notr="true">#btnGuardarH{
+	color: rgb(255, 255, 255);
+	background-color: rgb(85, 170, 255);
+	border-radius: 3px;	
+	min-height:25px;
+}
+
+#btnGuardarH:hover{
+	background-color: rgb(0, 85, 255);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Guardar</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="btnReiniciarH">
+                      <property name="styleSheet">
+                       <string notr="true">#btnReiniciarH{
+	color: rgb(255, 255, 255);
+	background-color: rgb(147, 147, 147);
+	border-radius: 3px;	
+	min-height: 25px;
+}
+
+#btnReiniciarH:hover{
+	background-color: rgb(100, 100, 100);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Reiniciar</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

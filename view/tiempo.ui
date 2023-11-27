@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>885</width>
+    <height>740</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Tiempo</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QFrame" name="contenedorPrincipal">
+      <property name="whatsThis">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+#contenedorPrincipal{
+	background-image: url(imagenes/fondo.png);
+}
+
+#frameBotones{
+	background-color:rgb(255, 255, 255);
+	border: 1px solid black;
+	max-width: 150px
+}
+
+#frameVentanas{
+	background-color:rgb(255, 255, 255);
+	border: 1px solid black;
+}
+
+#btnFinanzas,#btnNotas,#btnTiempo,#btnHorarios,#btnRecordatorios{
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	background-color: rgb(85, 170, 255);
+	border-radius: 3px;	
+	height: 30px;
+	border: 1px solid black;
+}
+
+#btnFinanzas:hover,#btnNotas:hover,#btnTiempo:hover,#btnHorarios:hover,#btnRecordatorios:hover{
+	background-color: rgb(0, 85, 255);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QFrame" name="framePrincipal">
+         <property name="maximumSize">
+          <size>
+           <width>780</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#framePrincipal{
+	padding: 0px;
+	margin: 30px 140px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item alignment="Qt::AlignVCenter">
+           <widget class="QFrame" name="frameInterno">
+            <property name="minimumSize">
+             <size>
+              <width>560</width>
+              <height>620</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);
+
+
+</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Comer</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_6">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Jugar / Ocio</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Trabajar</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="txtEstudiar"/>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="txtComer"/>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="txtDescansar"/>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="txtDeportes"/>
+             </item>
+             <item row="8" column="0" colspan="2">
+              <widget class="QLabel" name="lblResultado">
+               <property name="tabletTracking">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;
+color: rgb(255, 0, 0);</string>
+               </property>
+               <property name="text">
+                <string>Tu resultado es el siguiente</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="txtTrabajar"/>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="txtJugar"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_5">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Descansar</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="txtViajar"/>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="label_15">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>¿Cuantas horas destinadas a cada actividad?</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_13">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Estudiar</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_7">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Viajar</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_14">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Segoe Print&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Deportes</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>txtTrabajar</tabstop>
+  <tabstop>txtEstudiar</tabstop>
+  <tabstop>txtComer</tabstop>
+  <tabstop>txtDescansar</tabstop>
+  <tabstop>txtJugar</tabstop>
+  <tabstop>txtViajar</tabstop>
+  <tabstop>txtDeportes</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

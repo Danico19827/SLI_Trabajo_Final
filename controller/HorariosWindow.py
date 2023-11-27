@@ -4,7 +4,7 @@ import json
 
 class Horario():
     def __init__(self) -> None:
-        self.horarios = uic.loadUi("../SLI_Trabajo_Final/resources/templates/horarios.ui")
+        self.horarios = uic.loadUi("view/horarios.ui")
         self.horarios.showMaximized()
         self.cargarDatos()
         self.iniciar()
